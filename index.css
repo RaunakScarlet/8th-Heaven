@@ -1,0 +1,49 @@
+.header{
+    display: flex;
+    justify-content: space-between;
+    border: 1px solid black;
+}
+
+.img-src {
+    width: 150px;
+}
+
+.nav-items{
+    padding: 0 20px;
+}
+
+.nav-items>ul{
+    display: flex;
+    list-style-type: none;
+        font-size: 24px;
+   
+}
+
+.nav-items>ul>li{
+    padding: 10px;
+    margin: 10px;
+}
+
+.search{
+    padding: 10px;
+}
+.restrauntContainer{
+display: flex;
+flex-wrap: wrap;
+}
+
+.restrauntCard{
+    margin: 5px;
+    padding: 5px;
+    width: 200px;
+    height: 320px;
+    background-color: #e6c1c1;
+}
+.restrauntCard:hover{
+    cursor: pointer;
+    border: 1px solid black;
+}
+
+.res_logo{
+    width: 100%;
+}
