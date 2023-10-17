@@ -35,9 +35,9 @@ flex-wrap: wrap;
 .restrauntCard{
     margin: 5px;
     padding: 5px;
-    width: 200px;
-    height: 320px;
-    background-color: #e6c1c1;
+    width: 260px;
+    height: 480px;
+    background-color: #f0f0f0;
 }
 .restrauntCard:hover{
     cursor: pointer;
@@ -46,4 +46,26 @@ flex-wrap: wrap;
 
 .res_logo{
     width: 100%;
+    height: 50%;
+}
+
+.Shimmer-container{
+display: flex;
+    flex-wrap: wrap;
+}
+
+.Shimmer{
+    display: flex;
+        flex-wrap: wrap;
+    margin: 5px;
+        padding: 5px;
+        width: 200px;
+        height: 400px;
+        background-color: #f0f0f0;
+        
+
+}
+
+.isLogin-btn{
+font-size: 22px;
 }
