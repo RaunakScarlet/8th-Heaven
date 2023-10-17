@@ -6,6 +6,7 @@ const RestrauntCard = ({ restrauntInfo }) => {
     const { deliveryTime } = restrauntInfo.info.sla;
     return (
         <div className="restrauntCard">
+    
             <img
                 className="res_logo"
                 src={IMAGE_CDN + cloudinaryImageId}
