@@ -12,7 +12,8 @@ const Body = () => {
 
     useEffect(() => {
         fetchData();
-    }, [setRestrauntList]);
+        console.log(restrauntList);
+    }, []);
 
     const fetchData = async () => {
         const data = await fetch(SWIGGY_RESTRAUNT_LIST);
