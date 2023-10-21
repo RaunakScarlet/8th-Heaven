@@ -8,7 +8,12 @@ const Shimmer = () => {
           <div className="Shimmer"></div>
           <div className="Shimmer"></div>
           <div className="Shimmer"></div>
-          <div className="Shimmer"></div>     
+          <div className="Shimmer"></div>
+          <div className="Shimmer"></div>
+          <div className="Shimmer"></div>
+          <div className="Shimmer"></div>
+          <div className="Shimmer"></div>
+          <div className="Shimmer"></div>
           <div className="Shimmer"></div>
           <div className="Shimmer"></div>
           <div className="Shimmer"></div>

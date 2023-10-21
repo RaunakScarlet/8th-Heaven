@@ -1,4 +1,4 @@
-import React from "react";
+import React, { lazy, Suspense } from "react";
 import ReactDOM from "react-dom/client";
 import Header from "./src/Header";
 import Body from "./src/Body";
@@ -8,6 +8,9 @@ import Error from "./src/Error";
 import Footer from "./src/Footer";
 import Contact from "./src/Contact";
 import RestrauntMenu from "./src/RestrauntMenu";
+
+
+const GroceryMart=lazy(()=>import('./src/GroceryMart')) 
 
 
 
@@ -45,6 +48,15 @@ const appRouter = createBrowserRouter([
             {
                 path: "/restraunts/:id",
                 element: <RestrauntMenu />,
+                errorElement: <Error />,
+            },
+            {
+                path: "/grocery",
+                element: (
+                    <Suspense fallback={<h1>Have you prepareed the List thats need to be bought?</h1>}>
+                        <GroceryMart />
+                    </Suspense>
+                ),
                 errorElement: <Error />,
             },
         ],
