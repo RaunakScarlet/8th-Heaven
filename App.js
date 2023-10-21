@@ -7,6 +7,7 @@ import About from "./src/About";
 import Error from "./src/Error";
 import Footer from "./src/Footer";
 import Contact from "./src/Contact";
+import RestrauntMenu from "./src/RestrauntMenu";
 
 
 
@@ -41,8 +42,13 @@ const appRouter = createBrowserRouter([
                 element: <Contact />,
                 errorElement: <Error />,
             },
+            {
+                path: "/restraunts/:id",
+                element: <RestrauntMenu />,
+                errorElement: <Error />,
+            },
         ],
-    }
+    },
 ]);
 
 
