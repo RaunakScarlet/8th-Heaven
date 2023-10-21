@@ -2,23 +2,16 @@ import { useEffect, useState } from "react";
 import Shimmer from "./Shimmer";
 import { useParams } from "react-router-dom";
 import { RESTRAUNT_MENU_LIST } from "../utils/constants";
+import useRestrauntMenu from "../utils/hooks/useRestrauntMenu";
 
 
 const RestrauntMenu = () => {
 
     const restrauntId = useParams();
-    const [restrauntInfo, setRestrauntInfo] = useState(null);
+    
 
 
-    useEffect(() => {
-        fetchRestrauntData();
-    }, [])
-
-    const fetchRestrauntData = async () => {
-        const data = await fetch(RESTRAUNT_MENU_LIST + restrauntId.id);
-        const json = await data.json();
-        setRestrauntInfo(json.data)
-    }
+  const restrauntInfo = useRestrauntMenu(restrauntId.id);
 
     if (restrauntInfo == null) return <Shimmer />
     

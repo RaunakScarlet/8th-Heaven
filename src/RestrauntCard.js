@@ -1,8 +1,13 @@
 import { IMAGE_CDN } from "../utils/constants";
 
 const RestrauntCard = ({ restrauntInfo }) => {
-    const { name, cloudinaryImageId, costForTwo, cuisines, avgRating } =
-        restrauntInfo.info;
+    const {
+        name,
+        cloudinaryImageId,
+        costForTwo,
+        cuisines,
+        avgRating
+      } =restrauntInfo.info;
     const { deliveryTime } = restrauntInfo.info.sla;
     return (
         <div className="restrauntCard">
