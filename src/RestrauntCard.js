@@ -28,6 +28,16 @@ const RestrauntCard = ({ restrauntInfo }) => {
     );
 };
 
+export const isPromotedRestraunt = (RestrauntCard) => {
+    return (props) => {
+        return (
+            <>
+                <label className="absolute bg-black text-white m-2 p-2 rounded-lg">Promoted</label>
+                <RestrauntCard {...props} />
+            </>
+        )
+    };
+};
 
 
 export default RestrauntCard;
