@@ -10,14 +10,16 @@ const RestrauntCard = ({ restrauntInfo }) => {
       } =restrauntInfo.info;
     const { deliveryTime } = restrauntInfo.info.sla;
     return (
-        <div className="restrauntCard">
-    
+        <div
+            className="m-4 p-4 w-[280px] rounded-lg bg-slate-200 hover:bg-slate-400"
+            
+        >
             <img
-                className="res_logo"
+                className="rounded-lg w-[250px] h-[220px]"
                 src={IMAGE_CDN + cloudinaryImageId}
                 alt={name}
             />
-            <h3>{name}</h3>
+            <h3 className="font-bold py-4 text-lg">{name}</h3>
             <h4>{cuisines.join(", ")}</h4>
             <h4>Rs. {(costForTwo.match(/\d+/g) || []).map(Number)} for Two</h4>
             <h4>{avgRating} stars</h4>
@@ -25,5 +27,7 @@ const RestrauntCard = ({ restrauntInfo }) => {
         </div>
     );
 };
+
+
 
 export default RestrauntCard;

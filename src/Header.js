@@ -14,26 +14,28 @@ const Header = () => {
 
 
     return (
-        <div className="header">
+        <div className="flex justify-between bg-pink-100 shadow-lg">
             <div className="logo-conatiner">
-                <img className="img-src" src={logo} alt="BHOJ_GHAR" />
+                <img className="w-56" src={logo} alt="BHOJ_GHAR" />
             </div>
-            <div className="nav-items">
-                <ul>
-                    <li>Online Status: {isOnline == true ? "🟢" : "🔴"}</li>
-                    <li>
+            <div className="flex items-center">
+                <ul className="flex p-4 m-4">
+                    <li className="px-4">
+                        Online Status: {isOnline == true ? "🟢" : "🔴"}
+                    </li>
+                    <li className="px-4">
                         <Link to="/">Home</Link>
                     </li>
-                    <li>
+                    <li className="px-4">
                         <Link to="/about">About</Link>
                     </li>
-                    <li>
+                    <li className="px-4">
                         <Link to="/contact">Contact</Link>
                     </li>
-                    <li>
+                    <li className="px-4">
                         <Link to="/grocery">GroceryMart</Link>
                     </li>
-                    <li>
+                    <li className="px-4">
                         <Link to="/cart">Cart</Link>
                     </li>
                     <button

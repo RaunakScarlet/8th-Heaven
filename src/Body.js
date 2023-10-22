@@ -41,14 +41,16 @@ const Body = () => {
              <Shimmer />
          ) : (
              <div className="body">
-                 <div className="searchContainer">
+                 <div className="m-4 p-4">
                      <input
                          type="text"
                          value={searchItem}
                          placeholder="search"
-                         onChange={(e) => setSearchItem(e.target.value)}
+                            onChange={(e) => setSearchItem(e.target.value)}
+                            className="border border-black border-solid"
                      />
-                     <button
+                        <button
+                            className="m-4 bg-red-400 px-4 py-1 rounded-lg"
                          onClick={() => {
                              setFilteredRestrauntList(
                                  restrauntList.filter((restraunt) =>
@@ -62,7 +64,7 @@ const Body = () => {
                          Search
                      </button>
                  </div>
-                 <div className="restrauntContainer">
+                 <div className="flex flex-wrap">
                      {filteredRestrauntList.length == 0 ? (
                          <NotFound />
                      ) : (
