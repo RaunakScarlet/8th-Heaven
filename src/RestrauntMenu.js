@@ -1,18 +1,18 @@
-import { useEffect, useState } from "react";
 import Shimmer from "./Shimmer";
 import { useParams } from "react-router-dom";
-import { RESTRAUNT_MENU_LIST } from "../utils/constants";
 import useRestrauntMenu from "../utils/hooks/useRestrauntMenu";
+import RestrauntCategory from './RestrauntCategory'
+import { useState } from "react";
 
 
 const RestrauntMenu = () => {
 
     const restrauntId = useParams();
     
+    const restrauntInfo = useRestrauntMenu(restrauntId.id);
 
-
-  const restrauntInfo = useRestrauntMenu(restrauntId.id);
-
+    const [showIndexItem, setShowIndexItem] = useState(0);
+    
     if (restrauntInfo == null) return <Shimmer />
     
     const {
@@ -25,26 +25,37 @@ const RestrauntMenu = () => {
          /* data.cards[2].groupedCard.cardGroupMap.REGULAR.cards[2].card.card.itemCards[0].card.info */
      }
 
-    const { itemCards } =
-        restrauntInfo.cards[2].groupedCard.cardGroupMap.REGULAR.cards[2].card.card
-    console.log(itemCards);
-            
+    // const { itemCards } =
+    //     restrauntInfo.cards[2].groupedCard.cardGroupMap.REGULAR.cards[2].card.card
+    // console.log(itemCards);
+
+     const categories =
+         restrauntInfo?.cards[2]?.groupedCard?.cardGroupMap?.REGULAR?.cards?.filter(
+             (category) =>
+                 category?.card?.card?.["@type"] ==
+                 "type.googleapis.com/swiggy.presentation.food.v2.ItemCategory"
+         );
+     
             return (
-                <div className="menu">
-                    <h1>{name}</h1>
-                    <p>
+                <div className="text-center">
+                    <h1 className="font-bold my-6 text-2xl">{name}</h1>
+                    <p className="font-bold text-lg">
                         {cuisines.join(", ")}-{costForTwoMessage}
                     </p>
-                    <h2>Menu</h2>
+                    {
+                        /* categories List */
+                        // console.log(categories)
+                    }
 
-                    <ul>
-                        {itemCards.map((item) => (
-                            <li key={item.card.info.id}>
-                                {item.card.info.name} - Price Rs.
-                                { item.card.info.price / 100}
-                            </li>
-                        ))}
-                    </ul>
+                    {categories.map((category, index) => (
+                        <RestrauntCategory
+                            key={category?.card?.card?.data?.title}
+                            data={category?.card?.card}
+                            show={index == showIndexItem ? true : false}
+                            setShowIndexItem={() => setShowIndexItem(index)}
+                            
+                        />
+                    ))}
                 </div>
             );
 }

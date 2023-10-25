@@ -16,22 +16,26 @@ const Body = () => {
 
     useEffect(() => {
         fetchData();
-        console.log(restrauntList);
+        
     }, []);
 
     const fetchData = async () => {
-        const data = await fetch(SWIGGY_RESTRAUNT_LIST);
-        const json = await data.json();
+        try {
+            const data = await fetch(SWIGGY_RESTRAUNT_LIST);
+            const json = await data.json();
 
-        setRestrauntList(
-            json?.data?.cards[2]?.card?.card?.gridElements?.infoWithStyle
-                ?.restaurants
-        );
+            setRestrauntList(
+                json?.data?.cards[2]?.card?.card?.gridElements?.infoWithStyle
+                    ?.restaurants
+            );
 
-        setFilteredRestrauntList(
-            json?.data?.cards[2]?.card?.card?.gridElements?.infoWithStyle
-                ?.restaurants
-        );
+            setFilteredRestrauntList(
+                json?.data?.cards[2]?.card?.card?.gridElements?.infoWithStyle
+                    ?.restaurants
+            );
+        } catch (error) {
+            console.log(error);
+        }
     };
 
 const PromotedRestraunt = isPromotedRestraunt(RestrauntCard);
@@ -39,9 +43,9 @@ const PromotedRestraunt = isPromotedRestraunt(RestrauntCard);
     const onlineStatus = useOnlineStatus();
     if (!onlineStatus) return <h1>Looks like You are Offline</h1>
     
-        return restrauntList.length == 0 ? (
-            <Shimmer />
-        ) : (
+    if( restrauntList.length === 0 ) return <Shimmer /> 
+            
+        return(
             <div className="body">
                 <div className="m-4 p-4">
                     <input
@@ -49,10 +53,10 @@ const PromotedRestraunt = isPromotedRestraunt(RestrauntCard);
                         value={searchItem}
                         placeholder="search"
                         onChange={(e) => setSearchItem(e.target.value)}
-                        className="border border-black border-solid"
+                        className="border border-black border-solid rounded-lg px-4 py-1"
                     />
                     <button
-                        className="m-4 bg-red-400 px-4 py-1 rounded-lg"
+                        className="m-4 bg-red-400 px-4 py-1.5 text-white rounded-lg"
                         onClick={() => {
                             setFilteredRestrauntList(
                                 restrauntList.filter((restraunt) =>
@@ -75,7 +79,7 @@ const PromotedRestraunt = isPromotedRestraunt(RestrauntCard);
                                 key={restraunt.info.id}
                                 to={"restraunts/" + restraunt.info.id}
                             >
-                                {restraunt.info.avgRating>=4.4? (
+                                {restraunt.info.avgRating >= 4.2 ? (
                                     <PromotedRestraunt
                                         restrauntInfo={restraunt}
                                     />

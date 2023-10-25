@@ -8,21 +8,27 @@ import Error from "./src/Error";
 import Footer from "./src/Footer";
 import Contact from "./src/Contact";
 import RestrauntMenu from "./src/RestrauntMenu";
+import { Provider } from "react-redux";
 
 
 const GroceryMart=lazy(()=>import('./src/GroceryMart')) 
+import appStore from './store/store/appStore';
 
 
 
 
 
 const AppLayout = () => {
-    return <div className="app">
+    return (
+        <Provider store={appStore}>
+            <div className="app">
         <Header />
         <Outlet/>
         <Footer/>
-    </div>;
+            </div>
+            </Provider>)
 };
+
 
 const appRouter = createBrowserRouter([
     {
@@ -61,7 +67,8 @@ const appRouter = createBrowserRouter([
             },
         ],
     },
-]);
+    ]);
+
 
 
 const root = ReactDOM.createRoot(document.getElementById("root"));

@@ -1,7 +1,9 @@
-import { useState } from "react";
+import { useContext, useState } from "react";
 import logo from '../img/logo.png'
 import { Link } from 'react-router-dom';
 import useOnlineStatus from "../utils/hooks/useOnlineStatus";
+import UserContext from "../utils/context/UserContext";
+import { useSelector } from "react-redux";
 
 
 
@@ -10,6 +12,10 @@ const Header = () => {
 
     const [isLogin, setIsLogin] = useState('Login');
     const isOnline = useOnlineStatus();
+    const user = useContext(UserContext);
+    const cartItems=useSelector((store)=>store.cart.items)
+   
+       console.log(cartItems);
    
 
 
@@ -36,7 +42,7 @@ const Header = () => {
                         <Link to="/grocery">GroceryMart</Link>
                     </li>
                     <li className="px-4">
-                        <Link to="/cart">Cart</Link>
+                        <Link to="/cart">Cart-({cartItems.length})</Link>
                     </li>
                     <button
                         className="isLogin-btn"
@@ -48,6 +54,7 @@ const Header = () => {
                     >
                         {isLogin}
                     </button>
+                    <li>{user.name}</li>
                 </ul>
             </div>
         </div>
