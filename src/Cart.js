@@ -28,8 +28,7 @@ const Cart = () => {
                 <button
                     className="p-2 m-2 bg-black text-white rounded-lg"
                     onClick={handleClearItems}
-                >
-                    clear cart
+                >clear cart
                 </button>
                 <RestrauntCategoryItem items={cartItems} />
             </div>
