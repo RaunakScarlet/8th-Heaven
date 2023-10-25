@@ -13,6 +13,7 @@ import { Provider } from "react-redux";
 
 const GroceryMart=lazy(()=>import('./src/GroceryMart')) 
 import appStore from './store/store/appStore';
+import Cart from "./src/Cart";
 
 
 
@@ -57,9 +58,21 @@ const appRouter = createBrowserRouter([
                 errorElement: <Error />,
             },
             {
+                path: "/cart",
+                element: <Cart/>,
+                errorElement: <Error />,
+            },
+            {
                 path: "/grocery",
                 element: (
-                    <Suspense fallback={<h1>Have you prepareed the List thats need to be bought?</h1>}>
+                    <Suspense
+                        fallback={
+                            <h1>
+                                Have you prepareed the List thats need to be
+                                bought?
+                            </h1>
+                        }
+                    >
                         <GroceryMart />
                     </Suspense>
                 ),
@@ -67,7 +80,7 @@ const appRouter = createBrowserRouter([
             },
         ],
     },
-    ]);
+]);
 
 
 
