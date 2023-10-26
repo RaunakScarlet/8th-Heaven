@@ -32,7 +32,7 @@ const RestrauntCard = ({ restrauntInfo }) => {
                         )}
                     </div>
 
-                    <h2 className=" px-2 flex items-center text-lg  text-black font-bold m-1.5">
+                    <h2 className=" flex items-center text-lg  text-black font-bold m-1.5">
                         <span className="px">📍</span>
                         {deliveryTime} Kms
                     </h2>
@@ -40,9 +40,7 @@ const RestrauntCard = ({ restrauntInfo }) => {
                         {costForTwo}
                     </h2>
 
-                    {/* <h2 className="heading text-sm  text-black font-bold m-1.5">
-                        {costForTwo ?? "₹200 for two"}
-                    </h2> */}
+                    
                 </span>
             </div>
         </div>

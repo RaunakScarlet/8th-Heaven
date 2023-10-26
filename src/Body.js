@@ -70,7 +70,7 @@ const PromotedRestraunt = isPromotedRestraunt(RestrauntCard);
                         Search
                     </button>
                 </div>
-                 <div className="px-10">
+                 <div className="px-8">
             <div className="grid sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
                     {filteredRestrauntList.length == 0 ? (
                         <NotFound />
