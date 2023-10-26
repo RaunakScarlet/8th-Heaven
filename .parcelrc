@@ -1,9 +1,9 @@
-
 {
-  "name": "@company/parcel-config",
-  "main": "index.json",
-  "version": "1.0.0",
-  "engines": {
-    "parcel": "2.x"
-  }
+    "extends": "@parcel/config-default",
+    "transformers": {
+        "*.{js,mjs,jsx,cjs,ts,tsx}": [
+            "@parcel/transformer-js",
+            "@parcel/transformer-react-refresh-wrap"
+        ]
+    }
 }

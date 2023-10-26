@@ -20,9 +20,16 @@ const Header = () => {
 
 
     return (
-        <div className="flex justify-between bg-pink-100 shadow-lg">
+        <div className="flex justify-between bg-white-100 shadow-lg">
             <div className="logo-conatiner">
-                <img className="w-56" src={logo} alt="BHOJ_GHAR" />
+                <img
+                    className="w-36 px-6 cursor-pointer"
+                    src={logo}
+                    alt="BHOJ_GHAR"
+                    onClick={() => {
+                         window.location.href = "/";
+                    }}
+                />
             </div>
             <div className="flex items-center">
                 <ul className="flex p-4 m-4">
@@ -30,7 +37,14 @@ const Header = () => {
                         Online Status: {isOnline == true ? "🟢" : "🔴"}
                     </li>
                     <li className="px-4">
-                        <Link to="/">Home</Link>
+                        <Link
+                            to="/"
+                            onClick={() => {
+                                window.location.href = "/";
+                            }}
+                        >
+                            Home
+                        </Link>
                     </li>
                     <li className="px-4">
                         <Link to="/about">About</Link>
@@ -45,7 +59,8 @@ const Header = () => {
                         <Link to="/cart">Cart-({cartItems.length})</Link>
                     </li>
                     <button
-                        className="isLogin-btn"
+                        className="isLogin-btn pr-2"
+
                         onClick={() => {
                             isLogin == "Login"
                                 ? setIsLogin("Logout")

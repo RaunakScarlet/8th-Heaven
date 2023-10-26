@@ -2,7 +2,7 @@ import { createContext } from "react";
 
 
 const UserContext = createContext({
-    name:"dummy"
+    name:"  Guest"
 })
 
 export default UserContext;
