@@ -21,7 +21,7 @@ const RestrauntCard = ({ restrauntInfo }) => {
                 </h6>
                 <span className="flex flex-wrap">
                     <div className=" justify-center m-1 py-2">
-                        {avgRating <4 ? (
+                        {avgRating <4.2 ? (
                             <h4 className="heading pt-0 p-2 text-base w-12 h-6 bg-yellow-300 text-white font-medium rounded-md">
                                 {avgRating}⭐
                             </h4>
